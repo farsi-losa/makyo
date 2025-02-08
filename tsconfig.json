@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "outDir": "dist",
+      "module": "esnext",
+      "target": "ES2017",
+      "lib": ["dom", "ES7"],
+      "sourceMap": true,
+      "allowJs": false,
+      "jsx": "react",
+      "declaration": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "strict": true,
+    },
+    "include": ["src"]
+  }
