@@ -28,7 +28,7 @@ example:
 ```bash
 import { DropdownSearch } from "./general/dropdownSearch";
 
-export function Header() {
+export function MyComponent() {
     const [valueFromChild, setValueFromChild] = useState<string[] | string>('');
     const handleValueFromChild = (value: string[] | string) => {
         setValueFromChild(value);
