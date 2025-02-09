@@ -22,7 +22,8 @@ props:
 - options: array | list of options
 - onReturnValue: function callback | a function to get selected option
 - outline: boolean | dropdown style with border or no border
-- multiple: booleang | enable multiple choice or single choice
+- multiple: boolean | enable multiple choice
+- useFilter: boolean | enable search feature
 
 example:
 ```bash
@@ -30,17 +31,19 @@ import { DropdownSearch } from "./general/dropdownSearch";
 
 export function MyComponent() {
     const [valueFromChild, setValueFromChild] = useState<string[] | string>('');
+    const list_options = ['option one', 'option two', 'option three', 'option four', 'option five'];
+
     const handleValueFromChild = (value: string[] | string) => {
         setValueFromChild(value);
         console.log('handleValueFromChild',value)
-      };
+    };
    
-    const list_options = ['option one', 'option two', 'option three', 'option four', 'option five'];
     return (
         <DropdownSearch 
             options={list_options}
             outline={false}
             multiple={true}
+            useFilter={true}
             onReturnValue={handleValueFromChild}
             />
     );
