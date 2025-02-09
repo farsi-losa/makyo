@@ -60,14 +60,18 @@ export const DropdownSearch: React.FC<DropdownSearchProps> = ({ options, outline
 
     const onSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchKey(event.target.value);
+        const filteredOptions = options.filter((item) =>
+            item.toLowerCase().includes(event.target.value.toLowerCase())
+          );
+          setOptions(filteredOptions);
     }
 
     const clearSearch = () => {
         setSearchKey('');
+        setOptions(options);
     }
 
     const removeSelectedOption = (value:string) => {
-
         // remove the selected option from selected option list
         const newArray = selectedOpt.filter(item => item !== value);
         setselectedOpt(newArray);
@@ -106,7 +110,9 @@ export const DropdownSearch: React.FC<DropdownSearchProps> = ({ options, outline
                     {searchKey.length === 0 || <div className="cursor-pointer" onClick={clearSearch}>{remove_button_fill}</div>}
                 </div>
                 <div className="text-sm">
-                    {option_list.map(item => 
+                    {searchKey.length > 0 && option_list.length === 0
+                        ? <div className='py-1 px-2'>option not available</div>
+                        : option_list.map(item => 
                         <div key={item} className="py-1 px-2 cursor-pointer hover:bg-teal-50 " onClick={() => multiple ? onClickOption(item) : onClickSingleOption(item)}>{highlightMatch(item,searchKey)}</div>
                     )}
                 </div>
