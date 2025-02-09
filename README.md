@@ -23,7 +23,7 @@ props:
 - onReturnValue: function callback | a function to get selected option
 - outline: boolean | dropdown style with border or no border
 - multiple: boolean | enable multiple choice
-- useFilter: boolean | enable search feature
+- useSearch: boolean | enable search feature
 
 example:
 ```bash
@@ -43,7 +43,7 @@ export function MyComponent() {
             options={list_options}
             outline={false}
             multiple={true}
-            useFilter={true}
+            useSearch={true}
             onReturnValue={handleValueFromChild}
             />
     );
